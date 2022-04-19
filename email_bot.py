@@ -14,16 +14,11 @@ dp = Dispatcher(bot)
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
     await message.reply("Начинаем слушать почту!")
-
-#@dp.message_handler()
-#async def send_email(message: types.Message):
     while True:
         try:
             server=imaplib.IMAP4_SSL("mail.test.ru", 993)
             server.login('test@test.ru','PWD')
             server.select('INBOX/')
-#    while True:
-#        try:
             result, data = server.search(None, 'UnSeen')
             ids = data[0]
             id_list = ids.split()
@@ -41,8 +36,6 @@ async def process_start_command(message: types.Message):
                     except:
                         print ('Что-то поймали!')
             else:
-    #    body = email_message.get_payload
-    #    print(html2text.html2text(body))
                 print("Done")
         except IndexError:
             print ('Новых писем нет!')

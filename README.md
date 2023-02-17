@@ -1,2 +1,1 @@
-1. Работает с ошибками, надо исправить (Bot working with some errors, last message)
-2. Иногда отваливается, разобраться в чем проблема (Some times, when internet is down bot didnt start work again automatic)
+1. Читает сообщения только в кодировке base 64. Добавить условие, если кодировка 'UTF-8'.
